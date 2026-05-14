@@ -48,9 +48,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8096423, -0.08866459, 1.153
 [node name="Square3" parent="Blocks" instance=ExtResource("1_vk57k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7720172, -0.106513605, 1.3861676)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.93427294, 0.35655862, 0, -0.35655862, 0.93427294, 0, 2.431777, 6.0346804)
-
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11151719, 0)
 metadata/_edit_group_ = true
