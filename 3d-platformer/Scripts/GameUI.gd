@@ -3,8 +3,9 @@ extends Control
 # ---------- VARIABLES ---------- #
 
 @onready var coinsLabel = $CoinsLabel
+@onready var game_manager = get_tree().current_scene.get_node("GameManager")
 
 # ---------- FUNCTIONS ---------- #
 
 func _process(_delta):
-	coinsLabel.text = "x %d" % GameManager.score # Set the coin label text to the score variable
+	coinsLabel.text = "x %d" % game_manager.score

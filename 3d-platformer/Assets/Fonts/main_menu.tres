@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cig2asahq3bem"]
+
+[ext_resource type="FontFile" uid="uid://bo7tcjqmn3yu4" path="res://Assets/Fonts/MedievalSharp-Regular.ttf" id="1_34fgp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce3w2"]
+bg_color = Color(0.184314, 0.313726, 0.313726, 0.313726)
+corner_radius_top_left = 1135
+corner_radius_bottom_right = 500
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
+bg_color = Color(0.184314, 0.309804, 0.309804, 0.678431)
+border_blend = true
+corner_radius_top_left = 330
+corner_radius_top_right = 25
+corner_radius_bottom_right = 470
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34fgp"]
+bg_color = Color(0.184314, 0.309804, 0.309804, 0.678431)
+corner_radius_top_left = 330
+corner_radius_top_right = 25
+corner_radius_bottom_right = 470
+corner_radius_bottom_left = 25
+
+[resource]
+default_font = ExtResource("1_34fgp")
+Button/colors/font_color = Color(0.831373, 0.686275, 0.215686, 1)
+Button/colors/font_hover_color = Color(0.898039, 0.760784, 0.34902, 1)
+Button/colors/font_outline_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+Button/constants/outline_size = 12
+Button/font_sizes/font_size = 50
+Button/styles/hover = SubResource("StyleBoxFlat_ce3w2")
+Button/styles/normal = SubResource("StyleBoxFlat_n45e2")
+Button/styles/pressed = SubResource("StyleBoxFlat_34fgp")
+Label/colors/font_color = Color(0.831373, 0.686275, 0.215686, 1)
+Label/colors/font_outline_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+Label/colors/font_shadow_color = Color(0.196078, 0.196078, 0.196078, 1)
+Label/constants/shadow_outline_size = 29
+Label/font_sizes/font_size = 80

@@ -1,7 +1,41 @@
 extends Node
 
-# ---------- VARIABLES ---------- #
+# ---------- AUDIO PLAYERS ---------- #
 
-# References
-@onready var jump_sfx = $JumpSfx
-@onready var coin_sfx = $CoinSfx
+@onready var jump_sfx: AudioStreamPlayer = $JumpSfx
+@onready var coin_sfx: AudioStreamPlayer = $CoinSfx
+
+# ---------- AUDIO BUSES ---------- #
+
+enum AUDIO_BUSES {
+	Master,
+	SFX,
+	Music,
+}
+
+var volumes := {
+	"master": 1.0,
+	"sfx": 1.0,
+	"music": 1.0,
+}
+
+func _ready():
+	apply_volumes()
+
+func change_volume(audio_bus: AUDIO_BUSES, value: float):
+	match audio_bus:
+		AUDIO_BUSES.Master:
+			volumes["master"] = clamp(value, 0.0, 1.0)
+		AUDIO_BUSES.SFX:
+			volumes["sfx"] = clamp(value, 0.0, 1.0)
+		AUDIO_BUSES.Music:
+			volumes["music"] = clamp(value, 0.0, 1.0)
+
+	apply_volumes()
+
+func apply_volumes():
+	# Convert linear 0-1 scale to dB when applying
+	AudioServer.set_bus_volume_db(AUDIO_BUSES.Master, linear_to_db(volumes['master']))
+	AudioServer.set_bus_volume_db(AUDIO_BUSES.SFX, linear_to_db(volumes['sfx']))
+	AudioServer.set_bus_volume_db(AUDIO_BUSES.Music, linear_to_db(volumes['music']))
+	

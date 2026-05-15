@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dx8chfsi7sgx"]
+[gd_scene load_steps=18 format=3 uid="uid://dx8chfsi7sgx"]
 
 [ext_resource type="PackedScene" uid="uid://dve4iseuv1132" path="res://Scenes/square.tscn" id="1_vk57k"]
 [ext_resource type="MeshLibrary" uid="uid://c7uy8uqs7dfmu" path="res://Assets/World-blocks.tres" id="4_7p6j4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cjov54tpuhx5w" path="res://Scripts/GameUI.gd" id="6_lsmp6"]
 [ext_resource type="Script" uid="uid://mx8q1jw1q1qa" path="res://Scripts/FallingZone.gd" id="6_xrdnt"]
 [ext_resource type="AudioStream" uid="uid://bjtplp6ukf2cm" path="res://Assets/SFX/dragon-studio-clock-ticking-sfx-467486.mp3" id="9_wrinw"]
+[ext_resource type="Script" uid="uid://c5hv8x6qohy33" path="res://Scripts/GameManager.gd" id="10_chwpn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_evi0p"]
 sky_top_color = Color(0.79183596, 0.1582165, 0.3317967, 1)
@@ -87,13 +88,10 @@ debug_color = Color(1, 0.23333335, 0, 0.41960785)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.215506, 0.5991864, 3.8637896)
 
-[node name="Label3D" type="Label3D" parent="Features"]
+[node name="winInstuctionLabel" type="Label3D" parent="Features"]
 transform = Transform3D(0.8093554, 0, 0.5873192, 0, 1, 0, -0.5873192, 0, 0.8093554, -23.285164, 1.5302284, -8.451086)
 modulate = Color(0.26999998, 0.7323334, 1, 1)
-text = "You have 4 minutes to collect all the coins 
-before the timer goes off! 
-Are you fast enough? 
-       prove it!!"
+text = "win_condition"
 font = SubResource("SystemFont_xrdnt")
 font_size = 100
 outline_size = 40
@@ -101,11 +99,7 @@ outline_size = 40
 [node name="InstuctionLabel" type="Label3D" parent="Features"]
 transform = Transform3D(0.7135807, 0, -0.7005731, 0, 1, 0, 0.7005731, 0, 0.7135807, -16.720898, 1.9103291, -7.7819986)
 modulate = Color(0.26999998, 0.7323334, 1, 1)
-text = "Movement : AWSD
-   Jump : space
-Double jump available
-      you can try it here
-"
+text = "movement_label"
 font = SubResource("SystemFont_xrdnt")
 font_size = 100
 outline_size = 40
@@ -153,6 +147,7 @@ offset_left = 886.0
 offset_top = 32.0
 offset_right = 1147.0
 offset_bottom = 115.0
+text = "timer_label"
 label_settings = SubResource("LabelSettings_xrdnt")
 
 [node name="Node3D" type="Node3D" parent="."]
@@ -166,5 +161,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.59507, 2.8094811, 0.417414
 [node name="ActionMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_wrinw")
 volume_db = 7.0
+
+[node name="GameManager" type="Node3D" parent="."]
+script = ExtResource("10_chwpn")
 
 [connection signal="body_entered" from="Features/FallingZone" to="Features/FallingZone" method="_on_body_entered"]
