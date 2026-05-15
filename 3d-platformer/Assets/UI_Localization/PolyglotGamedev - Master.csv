@@ -653,21 +653,23 @@ LANGUAGE_EN,,ENGLISH,ANGLAIS,INGLÃ‰S,,,,,,,,,,,,,,,,,,,,,,,,,
 win_condition,,"Collect all the coins 
 before the timer goes off! 
 Are you fast enough? 
-       prove it!!  ","Ramasse toutes les pièces
-avant que le temps soit écoulé !
+       prove it!!  ","Ramasse toutes les pi ces
+avant que le temps soit  coul  !
 Es-tu assez rapide ?
-Prouve-le !!","¡Recoge todas las monedas
+Prouve-le !!"," Recoge todas las monedas
 antes de que se acabe el tiempo!
-¿Eres lo suficientemente rápido?
-¡¡Demuéstralo!!",,,,,,,,,,,,,,,,,,,,,,,,,
+ Eres lo suficientemente r pido?
+  Demu stralo!!",,,,,,,,,,,,,,,,,,,,,,,,,
 movement_label,,"Movement : AWSD
    Jump : space
 Double jump available
-      you can try it here ","Déplacement : AWSD
+      you can try it here ","D placement : AWSD
 Saut : Espace
 Double saut disponible
-Tu peux l’essayer ici","Movimiento : AWSD
+Tu peux l essayer ici","Movimiento : AWSD
 Saltar : Espacio
 Doble salto disponible
-Puedes probarlo aquí",,,,,,,,,,,,,,,,,,,,,,,,,
-timer_label,,Timer,Minuteur,Temporizador,,,,,,,,,,,,,,,,,,,,,,,,,
+Puedes probarlo aqu ",,,,,,,,,,,,,,,,,,,,,,,,,
+TIME_LABEL,,TIME,TEMPS,TIEMPO,,,,,,,,,,,,,,,,,,,,,,,,,
+WIN_TEXT,,You are fast! Enjoy the fireworks!,Tu es rapide ! Profite des feux dâ€™artifice !,Â¡Eres rÃ¡pido! Â¡Disfruta los fuegos artificiales!,,,,,,,,,,,,,,,,,,,,,,,,,
+LOSE_TEXT,,Time is over! You cant enjoy fireworks!,Le temps est Ã©coulÃ© ! Tu ne peux pas profiter des feux dâ€™artifice !,Â¡Se acabÃ³ el tiempo! Â¡No puedes disfrutar los fuegos artificiales!,,,,,,,,,,,,,,,,,,,,,,,,,

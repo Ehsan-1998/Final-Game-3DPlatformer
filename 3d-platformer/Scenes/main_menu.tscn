@@ -36,17 +36,15 @@ expand_mode = 3
 
 [node name="GameMenu" type="MarginContainer" parent="CanvasLayer"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = -1
-anchor_left = 0.627
-anchor_top = 0.465
 anchor_right = 1.0
-anchor_bottom = 0.49
-offset_left = -722.304
-offset_top = -155.32
-offset_right = -390.304
-offset_bottom = 209.48
-grow_horizontal = 0
+anchor_bottom = 1.0
+offset_left = 305.0
+offset_top = 229.0
+offset_right = -305.0
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("3_n45e2")
@@ -54,10 +52,12 @@ theme_override_constants/margin_left = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameMenu"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/GameMenu/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 6
 theme = SubResource("Theme_opfnp")
 theme_override_constants/separation = 8
 
@@ -76,14 +76,12 @@ text = "MENU_LABEL_QUIT"
 [node name="SettingsMenu" type="MarginContainer" parent="CanvasLayer"]
 unique_name_in_owner = true
 anchors_preset = -1
-anchor_left = 0.511
-anchor_top = 0.407
-anchor_right = 0.511
-anchor_bottom = 0.407
-offset_left = -211.672
-offset_top = -229.736
-offset_right = 212.328
-offset_bottom = 365.264
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 377.0
+offset_top = 34.0
+offset_right = -351.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_n45e2")
