@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq065i0r0001j"]
+
+[ext_resource type="PackedScene" uid="uid://bm5hiaw8dqgp7" path="res://Assets/WorldBlocks/World-blocks.glb" id="1_6j2ki"]
+
+[node name="World-blocks" instance=ExtResource("1_6j2ki")]
+
+[node name="RamTop" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4279387, 0.15450132, 6.3531175)
