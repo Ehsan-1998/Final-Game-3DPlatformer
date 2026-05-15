@@ -1,5 +1,8 @@
 extends Node
 
+const PARTICLES_SCENE := preload("res://Scenes/Particles.tscn")
+@onready var win_music: AudioStreamPlayer = $"../WinMusic"
+
 var score := 0
 var total_coins := 0
 
@@ -12,26 +15,28 @@ var timer_label: Label
 var action_music: AudioStreamPlayer
 
 func _ready():
+	randomize()
+
 	await get_tree().process_frame
+
 	action_music = get_tree().current_scene.get_node("ActionMusic")
-	
+
 	win_label = get_tree().current_scene.get_node("CanvasLayer/GameUI/WinLabel")
 	timer_label = get_tree().current_scene.get_node("CanvasLayer/GameUI/TimerLabel")
-	
+
 	total_coins = get_tree().get_nodes_in_group("Coin").size()
-	
-	
+
 	win_label.visible = false
 	timer_label.visible = false
 	timer_label.text = "Time: 20"
 
 func _process(delta):
 	show_mouse_cursor()
-	
+
 	if timer_started and not game_over:
 		time_left -= delta
 		timer_label.text = "Time: " + str(int(time_left))
-		
+
 		if time_left <= 0:
 			lose_game()
 
@@ -42,12 +47,12 @@ func show_mouse_cursor():
 func add_score():
 	if game_over:
 		return
-	
+
 	if not timer_started:
 		timer_started = true
 		timer_label.visible = true
 		action_music.play()
-	
+
 	score += 1
 
 	if score >= total_coins:
@@ -56,15 +61,35 @@ func add_score():
 func win_game():
 	game_over = true
 	timer_started = false
+
 	win_label.text = "You are fast! You won!"
 	win_label.visible = true
+
 	action_music.stop()
 	timer_label.visible = false
-	
+	win_music.play()
+
+	spawn_fireworks()
 
 func lose_game():
 	game_over = true
+
 	win_label.text = "Time is over! You lost coins!"
 	win_label.visible = true
+
 	timer_label.visible = false
 	action_music.stop()
+
+func spawn_fireworks():
+	for i in range(8):
+		var fireworks = PARTICLES_SCENE.instantiate()
+
+		var random_offset = Vector3(
+			randf_range(-6, 6),
+			randf_range(2, 6),
+			randf_range(-6, 6)
+		)
+
+		fireworks.global_position = random_offset
+
+		get_tree().current_scene.add_child(fireworks)

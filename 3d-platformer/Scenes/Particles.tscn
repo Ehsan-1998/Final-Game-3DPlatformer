@@ -1,0 +1,135 @@
+[gd_scene load_steps=23 format=3 uid="uid://daeoe8qbrtv0s"]
+
+[ext_resource type="Material" uid="uid://duos5tkiufvel" path="res://Game1/Assets/particules/fireworks.material" id="1_crxxb"]
+[ext_resource type="Material" uid="uid://8bxjy3ys87tc" path="res://Game1/Assets/particules/Sparks.material" id="2_kohbh"]
+
+[sub_resource type="Gradient" id="Gradient_kohbh"]
+offsets = PackedFloat32Array(0, 0.99232244)
+colors = PackedColorArray(1, 0, 0.13333334, 1, 1, 0.6392157, 0.13333334, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ritms"]
+gradient = SubResource("Gradient_kohbh")
+
+[sub_resource type="Gradient" id="Gradient_aax8m"]
+colors = PackedColorArray(0.9999998, 0.95341784, 0.9644932, 1, 0.02745098, 0.05882353, 0.09019608, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6it3x"]
+gradient = SubResource("Gradient_aax8m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8af50"]
+lifetime_randomness = 0.8
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 20.0
+scale_min = 4.0
+scale_max = 6.0
+color_ramp = SubResource("GradientTexture1D_6it3x")
+color_initial_ramp = SubResource("GradientTexture1D_ritms")
+hue_variation_min = -0.100000024
+hue_variation_max = -0.100000024
+sub_emitter_mode = 1
+sub_emitter_frequency = 20.0
+
+[sub_resource type="Curve" id="Curve_1su03"]
+_data = [Vector2(0.0017271154, 0.27411175), 0.0, 4.918158, 0, 0, Vector2(1, 0.0019036531), 0.9629061, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_nibk8"]
+material = ExtResource("1_crxxb")
+shape = 0
+size = 0.1
+curve = SubResource("Curve_1su03")
+
+[sub_resource type="Gradient" id="Gradient_eythr"]
+colors = PackedColorArray(0.827451, 0.1882353, 0, 1, 1, 0.7647059, 0.27450982, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xtc27"]
+gradient = SubResource("Gradient_eythr")
+
+[sub_resource type="Gradient" id="Gradient_s1opx"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bv3s6"]
+gradient = SubResource("Gradient_s1opx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jrcg3"]
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_box_extents = Vector3(100, 1, 1)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 30.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_bv3s6")
+color_initial_ramp = SubResource("GradientTexture1D_xtc27")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 32
+
+[sub_resource type="Curve" id="Curve_wrpbh"]
+_data = [Vector2(0, 1), 0.0, 0.4614556, 0, 0, Vector2(0.28391165, 0.8025316), 0.0, 0.0, 0, 0, Vector2(1, 0.070253134), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_ks1xu"]
+material = ExtResource("1_crxxb")
+shape = 0
+size = 0.2
+curve = SubResource("Curve_wrpbh")
+
+[sub_resource type="Gradient" id="Gradient_ritms"]
+colors = PackedColorArray(0.78431374, 0.36862746, 0, 1, 1, 0.7529412, 0.21176471, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aax8m"]
+gradient = SubResource("Gradient_ritms")
+
+[sub_resource type="Gradient" id="Gradient_6it3x"]
+offsets = PackedFloat32Array(0.007677543, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8af50"]
+gradient = SubResource("Gradient_6it3x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1su03"]
+lifetime_randomness = 0.9
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = -20.0
+initial_velocity_max = 20.0
+scale_min = 0.099999994
+color_ramp = SubResource("GradientTexture1D_8af50")
+color_initial_ramp = SubResource("GradientTexture1D_aax8m")
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_nibk8"]
+material = ExtResource("2_kohbh")
+radius = 0.2
+radial_steps = 3
+
+[node name="Node3D" type="Node3D"]
+
+[node name="BlastParticule" type="GPUParticles3D" parent="."]
+amount = 300
+sub_emitter = NodePath("../SparksMarerial")
+lifetime = 2.0
+explosiveness = 1.0
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_8af50")
+draw_pass_1 = SubResource("RibbonTrailMesh_nibk8")
+
+[node name="RocketParticles" type="GPUParticles3D" parent="."]
+amount = 10
+sub_emitter = NodePath("../BlastParticule")
+lifetime = 4.0
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_jrcg3")
+draw_pass_1 = SubResource("RibbonTrailMesh_ks1xu")
+
+[node name="SparksMarerial" type="GPUParticles3D" parent="."]
+amount = 1000
+lifetime = 0.3
+randomness = 1.0
+fixed_fps = 60
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_1su03")
+draw_pass_1 = SubResource("TubeTrailMesh_nibk8")

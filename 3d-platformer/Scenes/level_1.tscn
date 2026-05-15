@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx8chfsi7sgx"]
+[gd_scene load_steps=19 format=3 uid="uid://dx8chfsi7sgx"]
 
 [ext_resource type="PackedScene" uid="uid://dve4iseuv1132" path="res://Scenes/square.tscn" id="1_vk57k"]
 [ext_resource type="MeshLibrary" uid="uid://c7uy8uqs7dfmu" path="res://Assets/World-blocks.tres" id="4_7p6j4"]
 [ext_resource type="PackedScene" uid="uid://bsawfq2ya544q" path="res://Scenes/player.tscn" id="4_6444e"]
 [ext_resource type="PackedScene" uid="uid://cv1d25m1mkub2" path="res://Scenes/coin.tscn" id="5_6444e"]
 [ext_resource type="Texture2D" uid="uid://b1usogv12570w" path="res://Assets/Logo.png" id="5_evi0p"]
+[ext_resource type="AudioStream" uid="uid://c2543pkp2st5n" path="res://Assets/Audio/fireworks-09-419028.mp3" id="6_af3po"]
 [ext_resource type="Texture2D" uid="uid://da1g26r6l7ha" path="res://Assets/coin.png" id="6_evi0p"]
 [ext_resource type="Script" uid="uid://cjov54tpuhx5w" path="res://Scripts/GameUI.gd" id="6_lsmp6"]
 [ext_resource type="Script" uid="uid://mx8q1jw1q1qa" path="res://Scripts/FallingZone.gd" id="6_xrdnt"]
@@ -158,11 +159,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2)
 [node name="Coin2" parent="Node3D" groups=["Coin"] instance=ExtResource("5_6444e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.59507, 2.8094811, 0.4174142)
 
+[node name="Coin3" parent="Node3D" groups=["Coin"] instance=ExtResource("5_6444e")]
+transform = Transform3D(0.06237242, 0, 0.99805295, 0, 1, 0, -0.99805295, 0, 0.06237242, 40.200684, 9.260727, 31.558836)
+
+[node name="Coin4" parent="Node3D" groups=["Coin"] instance=ExtResource("5_6444e")]
+transform = Transform3D(0.06237242, 0, 0.99805295, 0, 1, 0, -0.99805295, 0, 0.06237242, 40.200684, 9.260727, 27.981556)
+
+[node name="GameManager" type="Node3D" parent="."]
+script = ExtResource("10_chwpn")
+
 [node name="ActionMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_wrinw")
 volume_db = 7.0
 
-[node name="GameManager" type="Node3D" parent="."]
-script = ExtResource("10_chwpn")
+[node name="WinMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_af3po")
 
 [connection signal="body_entered" from="Features/FallingZone" to="Features/FallingZone" method="_on_body_entered"]
