@@ -6,7 +6,7 @@ const PARTICLES_SCENE := preload("res://Scenes/Particles.tscn")
 var score := 0
 var total_coins := 0
 
-var time_left := 3.0
+var time_left := 120.0
 var timer_started := false
 var game_over := false
 
